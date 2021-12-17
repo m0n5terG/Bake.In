@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
-@charset "UTF-8";
+/* @charset "UTF-8"; */
 /*!
  * Bootstrap v5.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -5988,6 +5988,7 @@ textarea.form-control-lg {
 
 .carousel {
   position: relative;
+  margin-bottom: 4rem;
 }
 
 .carousel.pointer-event {
@@ -6005,11 +6006,16 @@ textarea.form-control-lg {
   content: "";
 }
 
+.carousel-item img {
+  object-fit: cover;
+}
+
 .carousel-item {
   position: relative;
   display: none;
   float: left;
   width: 100%;
+  height: 32rem;
   margin-right: -100%;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
@@ -6019,6 +6025,14 @@ textarea.form-control-lg {
   .carousel-item {
     transition: none;
   }
+}
+
+.carousel-item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 32rem;
 }
 
 .carousel-item.active,
@@ -6174,12 +6188,13 @@ textarea.form-control-lg {
 .carousel-caption {
   position: absolute;
   right: 15%;
-  bottom: 1.25rem;
+  bottom: 3rem;
   left: 15%;
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
   color: #fff;
   text-align: center;
+  z-index: 10;
 }
 
 .carousel-dark .carousel-control-prev-icon,
@@ -6192,6 +6207,8 @@ textarea.form-control-lg {
 .carousel-dark .carousel-caption {
   color: #000;
 }
+
+
 
 @-webkit-keyframes spinner-border {
   to {
@@ -11285,4 +11302,51 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+
+  /* Featurettes
+------------------------- */
+
+  .featurette-divider {
+    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+  }
+
+  /* Thin out the marketing headings */
+  .featurette-heading {
+    font-weight: 300;
+    line-height: 1;
+  }
+
+  .marketing .col-lg-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  .marketing h2 {
+    font-weight: 400;
+  }
+  /* rtl:begin:ignore */
+  .marketing .col-lg-4 p {
+    margin-right: .75rem;
+    margin-left: .75rem;
+  }
+
+  @media (min-width: 40em) {
+    /* Bump up size of carousel content */
+    .carousel-caption p {
+      margin-bottom: 1.25rem;
+      font-size: 1.25rem;
+      line-height: 1.4;
+    }
+  
+    .featurette-heading {
+      font-size: 50px;
+    }
+  }
+  
+  @media (min-width: 62em) {
+    .featurette-heading {
+      margin-top: 7rem;
+    }
+  }
+  
+
 }
