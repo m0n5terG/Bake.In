@@ -31,7 +31,7 @@
  
             <div class="col-3"></div>
             <div class="col-6">
-                <form action="/blog/{{ $post->id }}" enctype="multipart/form-data" method="POST">
+                <form action="{{ route('blog.update',$post->id) }}" enctype="multipart/form-data" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="form-group row mb-3">

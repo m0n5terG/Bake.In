@@ -5,8 +5,12 @@
     
     <hr class="featurette-divider">
     <div class="d-grid gap-2 d-md-block mb-3 ms-md-3 gap-2">
-        <a href="#" role="button" class="btn btn-secondary btn-sm">Edit</a>
-        <a href="#" role="button" class="btn btn-danger btn-sm">Delete</a>
+        <form action="{{ route('blog.destroy',$post->id) }}" method="POST"> 
+            <a href="{{ route('blog.edit',$post->id) }}" class="btn btn-secondary btn-sm">Edit</a>
+
+            @csrf 
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
     </div>
     
     <div class="row featurette">

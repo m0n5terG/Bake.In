@@ -23,7 +23,10 @@ class PostsController extends Controller
      */
     public function index()
     {
+        $post = Post::latest()->paginate(5);
+
         return view('blog.index')
+            
             ->with('posts', Post::orderBy('updated_at', 'DESC')->get());
     }
 
@@ -153,9 +156,9 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete($id)
+    public function destroy($id)
     {
-        $post = Post::find($id)->first();
+        $post = Post::find($id);
         
         Storage::delete($post->image);
 
