@@ -6,26 +6,39 @@
         Our Creation
     </h1>
 
-    <div class="d-flex justify-content-between py-4 my-4 border-top text-light"></div>
-        <hr class="featurette-divider">
+@if (session()->has('message'))
+    <div class="alert alert-info" role="alert">
+        {{ session()->get('message') }}
+    </div>
+@endif
 
-        <div class="row featurette">
-            <div class="col-md-7 order-md-2 align-self-center g-md-5">
+@if (Auth::check())
+    <div>
+        <a href="/blog/create" class="btn btn-primary btn-sm">Create</a>
+    </div>
+@endif
+
+@foreach ($posts as $post)
+    
+    <hr class="featurette-divider">
+
+        <div class="row featurette mb-5 mx-5">
+            <div class="col-7">
                 <h2 class="featurette-heading">
-                    Oh yeah, it’s that good.
+                    {{ $post->title }}
                 </h2>
                 <span class="text-muted fw-light">
                     By <span class="text-bolder fst-italic text-muted">
-                    {{-- {{ $post->user->name }} --}}
-                {{-- </span>, Created on {{ date('jS M Y', strtotime($post->updated_at)) }} --}}
+                    {{ $post->user->name }}
+                    </span>, Created on {{ date('jS M Y', strtotime($post->updated_at)) }}
                 </span>
-                <p class="lead">Anim incididunt tempor ut excepteur duis laborum exercitation cillum officia anim. Aute irure veniam eu esse aute dolor nisi. Qui fugiat sint proident elit duis ut fugiat.</p>
+                <p class="lead mb-3">{{$post->description}}</p>
+                <a href="/blog/{{ $post->id }}" class="btn btn-lg btn-outline-primary">Keep Reading</a>
             </div>
-            <div class="col-md-5 order-md-1 overflow-auto">
-                <img src="https://cdn.pixabay.com/photo/2014/11/28/08/03/brownie-548591_1280.jpg" width="500" alt="">
+            <div class="col-5">
+                <img src="{{ asset('images/' . $post->image) }}" class="rounded mw-100">
             </div>
         </div>
-    </div>  
+@endforeach
 </div>   
-
 @endsection

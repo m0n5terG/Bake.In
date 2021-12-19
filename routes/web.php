@@ -17,6 +17,8 @@ use App\Http\Controllers\PostsController;
 */
 
 Route::get('/', [PagesController::class, 'index']);
+Route::get('/pricing', [PagesController::class, 'pricing']);
+Route::get('/contact', [PagesController::class, 'contact']);
 
 Route::resource('/blog', PostsController::class);
 
