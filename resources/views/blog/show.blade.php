@@ -5,7 +5,7 @@
     <hr class="featurette-divider">
 
     @if (isset(Auth::user()->id) && Auth::user()->id == $post->user_id)
-    <div class="d-grid d-md-block ms-md-3 gap-2 mb-2">
+    <div class="d-grid d-md-block ms-md-3 gap-2 mb-2 float-end">
         <form action="{{ route('blog.destroy',$post->id) }}" method="POST"> 
             <a href="/blog/{{ $post->id }}/edit" class="btn btn-secondary btn-sm">Edit</a>
 
