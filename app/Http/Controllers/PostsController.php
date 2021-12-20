@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Image;
 
 
+
 class PostsController extends Controller
 {
     public function __construct()
@@ -23,11 +24,11 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $post = Post::latest()->paginate(5);
+        $posts = Post::latest()->paginate(3);
+        
+        return view('blog.index', compact('posts'))
+           ;
 
-        return view('blog.index')
-            
-            ->with('posts', Post::orderBy('updated_at', 'DESC')->get());
     }
 
     /**
@@ -100,11 +101,13 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($post)
+    public function edit($id)
     {
+        $post = Post::find($id);
         return view("blog.edit", [
             'post' => $post
         ]);
+            
     }
 
     /**
@@ -114,14 +117,13 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $id)
+    public function update(Request $request, $id)
     {
-        $post = Post::find($id);
-        $this->validate($request, array(
+        $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'image' => 'image'
-        ));
+            'image' => 'required|mimes:jpg,png,jpeg|max:5048'
+        ]);
 
         $post = Post::find($id);
         // Load the existing profile
@@ -130,14 +132,15 @@ class PostsController extends Controller
 
         // Save the new image... if there is one in the request()!
         if ($request->hasFile('image')) {
+            //add new photo
             $image = $request->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $location = public_path('images/' . $filename);
             Image::make($image)->resize(800, 400)->save($location);  
             $oldFilename = $post->image;
-
+            // update DB
             $post->image = $filename;
-
+            // delete old photo
             Storage::delete($oldFilename);
         }
 
