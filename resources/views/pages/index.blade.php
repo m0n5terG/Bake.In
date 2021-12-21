@@ -97,19 +97,19 @@
     </div>
     <div class="container mb-3 m-auto">
         <div class="row g-0">
-            <div class="col-sm-6 bg-warning rounded-start align-items-center" style="width: 500px;">
-                <div class="badge text-start px-5 py-2 justify-content-between">
-                    <span class="text-muted fw-bold ">Latest Creation</span>
+            <div class="col-md-6 bg-warning rounded-start mw-100">
+                <div class="badge text-start px-5 py-3 justify-content-between">
+                    <span class="text-muted fw-bold">Latest Creation</span>
+                    <h3 class="text-black-50 pt-4">{{$posts->title}}</h3>
                     <h5 class="py-3 text-wrap">
-                        Non mollit consectetur pariatur fugiat occaecat occaecat magna ipsum elit ea exercitation veniam nulla magna. Laborum Lorem exercitation cillum quis Lorem excepteur velit excepteur adipisicing. Incididunt dolor nisi duis nostrud Lorem sunt.
-                    </h5>
-                    <a class="btn btn-outline-success" href="" class="uppercase bg-transparent font-extrabold">
+                        {{ Illuminate\Support\Str::of($posts->description)->words(14)}}                    </h5>
+                    <a class="btn btn-outline-success" href="/blog/{{ $posts->id }}" class="uppercase bg-transparent font-extrabold">
                         Find Out More
                     </a>
                 </div>       
             </div>
-            <div class="col-sm-6">
-                <img src="https://cdn.pixabay.com/photo/2019/02/25/19/27/brownie-4020349_1280.jpg" class="rounded-end" style="width: 500px;" alt="...">                
+            <div class="col-md-6">
+                <img src="{{ asset('images/' . $posts->image) }}" class="mw-100 rounded-end" alt="...">                
             </div>                
         </div>
     </div>
