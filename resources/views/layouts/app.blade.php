@@ -17,8 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rozha+One&display=swap" rel="stylesheet">  
-
+    <link href="https://fonts.googleapis.com/css2?family=Gwendolyn:wght@700&family=Inspiration&family=Rozha+One&display=swap" rel="stylesheet">
     <!-- Styles -->
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/footers/">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/">
@@ -29,9 +28,9 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a style="font-family: 'Inspiration', cursive;" class="navbar-brand" href="{{ url('/') }}"><strong>
                     {{ config('app.name', 'Laravel') }}
-                </a>
+                </strong></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>

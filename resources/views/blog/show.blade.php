@@ -34,17 +34,23 @@
 
     <hr class="featurette-divider">
 
+    @foreach ($post->comments as $comment)
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            @foreach ($post->comments as $comment)
             <div class="comment">
-                <p><strong>posted by:</strong> {{ $comment->author }}</p>
-                <p><strong>posted on:</strong> {{ date('jS M Y', strtotime($comment->created_at)) }}</p>
-                <p><strong>Comment:</strong><br/>{{ $comment->comment }}</p>
+                <span><strong>post by:</strong></span> {{ $comment->author }}
+                <span><strong>, on:</strong> {{ date('jS M Y', strtotime($comment->created_at)) }}</span>
+            </div>
+            <div>
+                <label for="comment" class="form-label text-muted">Comment:</label>
+                <textarea class="form-control mb-3" id="comment" rows="2">{{ $comment->comment }}</textarea>    
+                {{-- <p><strong>Comment:</strong><br/>{{ $comment->comment }}</p> --}}
             </div>    
-            @endforeach
         </div>
     </div>
+    @endforeach
+
+    <hr class="featurette-divider">
 
     <div class="row">
         <div id="comment-form" class="col-md-8 offset-2">

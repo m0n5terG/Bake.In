@@ -99,7 +99,7 @@
         <div class="row g-0">
             <div class="col-md-6 bg-warning rounded-start mw-100">
                 <div class="badge text-start px-5 py-3 justify-content-between">
-                    <span class="text-muted fw-bold">Latest Creation</span>
+                    <span class="h4 text-muted fw-bold" style="font-family: 'Gwendolyn', cursive;" >Latest Creation</span>
                     <h3 class="text-black-50 pt-4">{{$posts->title}}</h3>
                     <h5 class="py-3 text-wrap">
                         {{ Illuminate\Support\Str::of($posts->description)->words(14)}}                    </h5>

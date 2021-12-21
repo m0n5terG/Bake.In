@@ -11,7 +11,7 @@
   <footer class="py-5 px-5">
     <div class="row">
       <div class="col-3">
-        <h5>Section</h5>
+        <h5 class="text-light">Section</h5>
         <ul class="nav flex-column">
           <li class="nav-item mb-2"><a href="/" class="nav-link p-0 text-muted">Home</a></li>
           <li class="nav-item mb-2"><a href="/blog" class="nav-link p-0 text-muted">Blog</a></li>
@@ -21,7 +21,7 @@
       </div>
 
       <div class="col-4">
-        <h5>Section</h5>
+        <h5 class="text-light">Section</h5>
         <ul class="nav flex-column">
           <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
           <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Blog</a></li>
@@ -44,7 +44,11 @@
     </div>
 
     <div class="d-flex justify-content-between py-4 my-4 border-top text-light">
-      <p>&copy; 2021 Just.bake.in by Lynn Rahim. All rights reserved.</p>
+      <ul class="list-inline">
+        <li class="list-inline-item">&copy; 2021</li>
+        <li class="h5 list-inline-item text-secondary" style="font-family: 'Inspiration', cursive;"><strong>Just.bake.in by Lynn Rahim.</strong></li>
+        <li class="list-inline-item">All rights reserved.</li>
+      </ul>
       <ul class="list-unstyled d-flex">
         <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
         <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
