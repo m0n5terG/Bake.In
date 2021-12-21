@@ -32,30 +32,44 @@
         </div>
     </div>
 
-    {{-- <div class="row">
+    <hr class="featurette-divider">
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            @foreach ($post->comments as $comment)
+            <div class="comment">
+                <p><strong>posted by:</strong> {{ $comment->author }}</p>
+                <p><strong>posted on:</strong> {{ date('jS M Y', strtotime($comment->created_at)) }}</p>
+                <p><strong>Comment:</strong><br/>{{ $comment->comment }}</p>
+            </div>    
+            @endforeach
+        </div>
+    </div>
+
+    <div class="row">
         <div id="comment-form" class="col-md-8 offset-2">
-            <form action="{{ route('comment.store')}}" method="POST">
+            <form action="{{ route('comments.add', $post->id) }}" method="POST">
             @csrf
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 pb-3">
                         <label for="" class="form-label">Name</label>
-                        <input type="name" class="form-control" name="" id="" placeholder="">
+                        <input type="name" class="form-control" name="author" id="" placeholder="">
                     </div>
                     <div class="col-md-6">
                         <label for="" class="form-label">Email</label>
-                        <input type="email" class="form-control" name="" id="" placeholder="">
+                        <input type="email" class="form-control" name="email" id="" placeholder="">
                     </div>
-                    <div class="col-md-12 mb-3">
+                    <div class="col-md-12 pb-3">
                         <label for="" class="form-label">Comment</label>
-                        <textarea class="form-control" name="comment" id="" rows="3"></textarea>
+                        <textarea class="form-control" name="comment" id="comment" rows="3"></textarea>
                     </div>
                     <div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary" value="Add Comment">Submit</button>
                     </div>
                 </div>
             </form>
         </div>
-    </div> --}}
+    </div>
 </div>   
 
 @endsection
